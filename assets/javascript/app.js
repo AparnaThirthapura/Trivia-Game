@@ -8,91 +8,91 @@ var quiz = [
 		"question"	: "Which of these mammals lay eggs?",
 		"choices"	: [	"echidna", "bongo", "kiwi", "southern right whale"],
 		"answer"	: "echidna",
-		"image"		: " "
+		"image"		: "assets/images/echidna.jpg"
 	},
 
 	{
 		"question"	: "Which is the biggest species of shark?",
 		"choices"	: [ "great white shark", "hammerhead shark", "whale shark", "basking shark"],
 		"answer"	: "whale shark",
-		"image"		: " "
+		"image"		: "assets/images/whaleShark.jpg "
 	},
 
 	{
 		"question"	: "What do you call a young horse?",
 		"choices"	: [ "cub", "calf", "foal", "cygnet"],
 		"answer"	: "foal",
-		"image"		: " "
+		"image"		: "assets/images/foal.jpg "
 	},
 
 	{
 		"question"	: "Which is the most poisonous snake in the planet? ",
 		"choices"	: [ "cobra", "inland taipan", "black mamba", "rattlesnake"],
 		"answer"	: "inland taipan",
-		"image"		: " "
+		"image"		: "assets/images/inlandTaipan.jpg "
 	},
 
 	{
 		"question"	: "Which of these dinosaurs lived during the Jurassic Period?",
 		"choices"	: [ "triceratops", "stegosaurus", "raptor", "t-rex"],
 		"answer"	: "stegosaurus",
-		"image"		: " "
+		"image"		: "assets/images/stegosaurus.png "
 	},
 
 	{
 		"question"	: "Which of these animals is not endangered?",
 		"choices"	: ["red wolf", "sperm whale", "capybara", "jaguar"],
 		"answer"	: "capybara",
-		"image"		: " "
+		"image"		: "assets/images/capybara.jpg "
 	},
 
 	{
 		"question"	: "Which is the fastest animal on the Earth?",
 		"choices"	: [ "cheetah", "peregrine falcon", "leopard", "hyena"],
 		"answer"	: "peregrine falcon",
-		"image"		: " "
+		"image"		: "assets/images/peregrineFalcon.jpg "
 	},
 
 	{
 		"question"	: "Which animal could not survive in Africa?",
 		"choices"	: [ "hippopotamus", "tsetse fly", "wildcat", "giraffe"],
 		"answer"	: "wildcat",
-		"image"		: " "
+		"image"		: "assets/images/wildcat.jpg "
 	},
 
 	{
 		"question"	: "What company first developed the MP3?",
 		"choices"	: [ "Apple Computer", "Microsoft", "Fraunhofer Gesellschaft", "Napster"],
 		"answer"	: "Fraunhofer Gesellschaft",
-		"image"		: " "
+		"image"		: "assets/images/fraunhofer.png "
 	},
 
 	{
 		"question"	: "Who took the worlds first photograph?",
 		"choices"	: [ "George Eastman", "Edwin Land", "Joseph Niepce", "Guglielmo Macroni"],
 		"answer"	: "Joseph Niepce",
-		"image"		: " "
+		"image"		: "assets/images/niepce.jpg "
 	},
 
 	{
 		"question"	: "When was the moble phone invented?",
 		"choices"	: [ "1968", "1982", "1975", "1973"],
 		"answer"	: "1973",
-		"image"		: " "
+		"image"		: "assets/images/firstMobile.jpg "
 	},
 
 	{
 		"question"	: "Who invented disovered penicillin?",
 		"choices"	: [ "Benjamin Franklin", "Francis Clark", "Alexender Fleming", "Louis Pasteur"],
 		"answer"	: "Alexender Fleming",
-		"image"		: " "
+		"image"		: "assets/images/alexenderFleming.jpg "
 	},
 
 	{
 		"question"	: "Who developed the first modern automobile?",
 		"choices"	: [ "Henry Ford", "Karl Benz", "Nils Bohlin", "Robert Fulton"],
 		"answer"	: "Karl Benz",
-		"image"		: " "
+		"image"		: "assets/images/karlBenz.jpg "
 	}];
 
 var correctAnswers = 0;
@@ -175,6 +175,13 @@ $("#frame").on("click", ".choice", function(){
 		clearScreen();
 		$("<h1>").text(quizTitle).appendTo("#frame");
 		$("<h1>").text("Correct!!!!").appendTo("#frame");
+		// $(document.createElement('img')).addClass('question-image').attr('id', 'question-image')
+		// .attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
+		// $("<img>").html(quiz[currentQuestion].image).appendTo("#frame");
+		// var img = $("<img>");
+		// img.src = quiz[currentQuestion].image;
+		// $("img").appendTo("#frame");
+		$("<img>").addClass("ans-image").attr("id", "ans-image").attr('src', quiz[currentQuestion].image).appendTo("#frame");
 	}
 	else{
 		wrongAnswers++;
@@ -182,6 +189,8 @@ $("#frame").on("click", ".choice", function(){
 		$("<h1>").text(quizTitle).appendTo("#frame");
 		$("<h1>").text("Wrong !!!!").appendTo("#frame");
 		$("<h1>").text("Correct answer is " + quiz[currentQuestion].answer).appendTo("#frame");
+		$("<img>").addClass("ans-image").attr("id", "ans-image").attr('src', quiz[currentQuestion].image).appendTo("#frame");
+
 	}
 
 	setTimeout(nextQuestion, 1000);

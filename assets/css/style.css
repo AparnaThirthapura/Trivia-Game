@@ -60,4 +60,8 @@ button{
     border-width: 10px;
     margin:0 auto;
 }
+img{
+	height: 120px;
+	width: 120px;
+}
 
