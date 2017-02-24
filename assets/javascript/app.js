@@ -141,8 +141,13 @@ function decrement() {
 		notAnswered++;
 		clearScreen();
  		$("<h1>").text(quizTitle).appendTo("#frame");
- 		$("<h1>").text("Time Up!! Moving to next question").appendTo("#frame");
- 		setTimeout(nextQuestion, 1000);
+
+ 		$("<h1>").text("Time Up!!").appendTo("#frame");
+ 		$("<h1>").text("Correct answer is " + quiz[currentQuestion].answer).appendTo("#frame");
+ 		$("<img>").addClass("ans-image").attr("id", "ans-image").attr('src', quiz[currentQuestion].image).appendTo("#frame");
+
+ 		$("<h1>").text("Moving to next question").appendTo("#frame");
+ 		setTimeout(nextQuestion, 2000);
 	}
 }
 // Timer function ends
@@ -193,7 +198,7 @@ $("#frame").on("click", ".choice", function(){
 
 	}
 
-	setTimeout(nextQuestion, 1000);
+	setTimeout(nextQuestion, 2000);
 });
 //User click function ends
 
