@@ -29,6 +29,7 @@ h4{
 	margin:50px 50px 50px 50px;
 	background-color: Green;
 	/*padding:500px;*/
+	text-align: center;
 }
 
 .choice{
@@ -43,8 +44,20 @@ h4{
 .choice:hover{
 	background-color: lightblue;
 }
+
 p{
 	font-size: 25px;
 	font-weight: : bold:;
+}
+
+button{
+	position:relative;
+	background-color: white;
+    border: black solid;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    border-width: 10px;
+    margin:0 auto;
 }
 

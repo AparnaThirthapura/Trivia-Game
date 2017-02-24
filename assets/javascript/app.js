@@ -99,7 +99,6 @@ var correctAnswers = 0;
 var wrongAnswers = 0;
 var notAnswered = 0;
 var timer1 = $("<div>");
-// var $div1 = $("<div>", {id: "timer"});
 var secLeft = 10;
 var currentQuestion = 0;
 
@@ -107,10 +106,19 @@ startGame();
 
 function startGame(){
 	$(document.createElement('h1')).text(quizTitle).appendTo('#frame');
-	$(document.createElement('button')).text("START").appendTo('#frame');
+	$(document.createElement('button')).addClass("start").text("START").appendTo('#frame');
+
+	correctAnswers = 0;
+	wrongAnswers = 0;
+	notAnswered = 0;
+	timer1 = $("<div>");
+	secLeft = 10;
+	currentQuestion = 0;
+
 }
 
-$('button').click(function(){
+$('#frame').on("click", ".start", function(){
+// $('button').click(function(){
 	$('#frame').empty();
 	$(document.createElement('h1')).text(quizTitle).appendTo('#frame');
 	timer1.appendTo("#frame");
@@ -215,6 +223,12 @@ function nextQuestion(){
  	$("<h1>").text("Wrong Answers:  " + wrongAnswers).appendTo("#frame");
  	$("<h1>").text("Not Answered:  " + notAnswered).appendTo("#frame");
 
+ 	$("<button>").addClass("restart").text("RESTART").appendTo('#frame');
+ 	$('#frame').on("click", ".restart", function(){
+ 		$('#frame').empty();
+ 		startGame();
+ 		
+ 	});
  }
  
  //Function to display reults at the end of the game ends
